@@ -10,12 +10,21 @@
 
 @implementation ImageSaveDisk
 
-+(NSString *) filePathForImage:(NSString *) nameImage
++(NSString *)filePathForImage:(NSString *)nameImage
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *filePath = [documentsDirectory stringByAppendingString:nameImage];
     return filePath;
+}
+
++(BOOL)imageExistsAtPath:(NSString *)pathImage
+{
+    if(![[NSFileManager defaultManager] fileExistsAtPath:pathImage]){
+        return false;
+    } else {
+        return true;
+    }
 }
 
 @end

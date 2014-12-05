@@ -11,5 +11,6 @@
 @interface ImageSaveDisk : NSObject
 
 +(NSString *) filePathForImage:(NSString *) nameImage;
++(BOOL) imageExistsAtPath:(NSString*) nameImage;
 
 @end

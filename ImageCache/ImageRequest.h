@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+typedef void(^ImageRequestBlock)(UIImage* image);
 
 @interface ImageRequest : NSObject
+
+
+-(void) fetchImageWithUrl:(NSString *)url andNameImage:(NSString*)nameImage withcompletionBlock:(ImageRequestBlock)completionBlock;
+-(void) cancelImageDownloadWithURL:(NSString *)url withCompletionBlock:(void (^)(void))completionBlock;
+
 
 @end
